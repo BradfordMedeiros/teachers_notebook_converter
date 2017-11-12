@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DriverList>
+	<Item>
+		<Name Value="Intel(R) 45 Express Chipset">
+		</Name>
+		<Version Value="8.15.10.1749">
+		</Version>
+	</Item>
+	<Item>
+		<Name Value="G41-Express Chipset">
+		</Name>
+		<Version Value="8.15.10.1749"/>
+	</Item>
+	<Item>
+		<Name Value="Mobile Intel 4 Series Express Chipset Family"/>
+		<Version Value="8. 15. 10. 1855"/>
+	</Item>
+	<Item>
+		<Name Value="Intel(R) Graphics Media Accelerator HD"/>
+		<Version Value="8.16.11.8880"/>
+	</Item>
+	<Item>
+		<Name Value="Intel G45/G43 express chipset"/>
+		<Version Value="8.15.10.1892"/>
+	</Item>
+	<Item>
+		<Name Value="Intel G41 Express"/>
+		<Version Value="8.15.10.1749"/>
+	</Item>
+	<Item>
+		<Name Value="Intel 45 Express"/>
+		<Version Value="8.15.10.1749"/>
+	</Item>
+		<Item>
+		<Name Value="Intel G45/G43 Express"/>
+		<Version Value="8.15.10.1892"/>
+	</Item>
+	<Item>
+		<Name Value="Intel Graphics Media Accelerator HD"/>
+		<Version Value="8.15.10.20557"/>
+	</Item>
+	<Item>
+		<Name Value="Intel Graphics Media Accelerator HD"/>
+		<Version Value="8.16.11.8880"/>
+	</Item>
+	<Item>
+		<Name Value="Intel Q45/Q43 Express"/>
+		<Version Value="8.14.10.1749"/>
+	</Item>
+	<Item>
+		<Name Value="Intel Q45/Q43 Express"/>
+		<Version Value="8.15.10.1749"/>
+	</Item>
+	<Item>
+		<Name Value="Intel(R) Q45/Q43 Express Chipset (Microsoft Corporation - WDDM 1.1)"/>
+		<Version Value="8.15.10.1749"/>
+	</Item>
+	<Item>
+		<Name Value="Mobile Intel 4 Series Express"/>
+		<Version Value="8.15.10.1808"/>
+	</Item>
+	<Item>
+		<Name Value="Mobile Intel 4 Series Express"/>
+		<Version Value="8.15.10.1855"/>
+	</Item>
+	<Item>
+		<Name Value="Mobile Intel 4 Series Express"/>
+		<Version Value="8.15.10.1892"/>
+	</Item>
+</DriverList>
+
+
+
+
+
+
+
+
+
+
+
