@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link rel = "stylesheet" type = "text/css" href = "style.css" />
+  </head>    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <title>File Converter</title>
+  </head>
+
+  <body>
+    <div id="root">
+      <div id="top">
+        <div id="title">Promotheon Board File Conversion</div>
+      </div>
+      <div id="bottom">
+        <div  id="left" ondrop="addFileAndRender(event)">
+          <div id="files">
+            <div id="no_files">
+              Uploaded Files Will Appear Here
+            </div>
+          </div>
+        </div>
+        <div id="right">
+          <div id="conv_title">Conversion Tools</div>
+          <button id="upload">Upload Files</button>
+          <button id="upload">Convert and Download</button>
+        </div>
+
+      </div>
+
+       <div id="footer">no-dogma industries</div>
+    </div>
+
+  </body>
+
+  <script>
+      const files = [ ];
+
+      const createFileNode = fileName => {
+        const innerDiv = document.createElement('div');
+        innerDiv.className = 'file_element';
+        innerDiv.innerText = fileName;
+        return innerDiv;
+      };
+
+      const addFile = file => {
+        document.getElementById('files').appendChild(createFileNode(file.name));
+      };
+
+
+      const renderFiles = () => {
+        document.getElementById('files').innerHTML = '';
+        files.forEach(addFile);
+      };
+
+      const addFileAndRender = event  => {
+        window.e = event;
+        const dataTransfer = event.dataTransfer;
+        const items = dataTransfer.items;
+
+        for (let i = 0; i < items.length; i++){
+          if (items[i].kind === 'file'){
+            const file = items[i].getAsFile();
+            console.log('got file!');
+            files.push(file);
+          }
+        }
+        renderFiles();
+      };
+
+      window.addEventListener("dragover",function(e){
+        e = e || event;
+        e.preventDefault();
+      },false);
+      window.addEventListener("drop",function(e){
+        e = e || event;
+        e.preventDefault();
+      },false);
+  </script>
+</html>
