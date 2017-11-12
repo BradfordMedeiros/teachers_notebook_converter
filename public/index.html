@@ -31,8 +31,8 @@
         </div>
         <div id="right">
           <div id="conv_title">Conversion Tools</div>
-          <button id="upload" >Upload Files</button>
-          <button id="upload" onclick="uploadFiles()">Convert and Download</button>
+          <!-- <button class="upload" >Upload Files</button>-->
+          <button id="upload_button" class="upload" onclick="uploadFiles()">Convert and Download</button>
         </div>
 
       </div>
@@ -46,6 +46,9 @@
       const files = [ ];
 
       const uploadFiles = () => {
+        console.log('upload');
+        document.getElementById('upload_button').className+=' disabled'
+
         generateFormData(files).then(formData => {
           postForm(formData)
         }).catch(() => {
@@ -63,8 +66,11 @@
            response.then(responseData => {
              const blob =  responseData.blob();
              blob.then(data => {
-               download(blob, 'files.zip');
+               download(data, 'notebooks.zip');
+               document.getElementById('upload_button').className='upload';
              });
+             files.splice(0);
+             renderFiles();
            });
       };
 
@@ -105,13 +111,18 @@
       };
 
 
-      const renderFiles = () => {
-        document.getElementById('files').innerHTML = '';
-        files.forEach(addFile);
+      const renderFiles = (initial) => {
+        if (files.length  === 0){
+          document.getElementById('files').innerHTML = 'Uploaded Files Will Appear Here';
+        }else{
+          document.getElementById('files').innerHTML = '';
+          files.forEach(addFile);
+        }
       };
 
       const addFileAndRender = event  => {
-        window.e = event;
+        document.getElementById('upload_button').className='upload';
+
         const dataTransfer = event.dataTransfer;
         const items = dataTransfer.items;
 

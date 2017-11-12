@@ -126,7 +126,7 @@ body {
     border-bottom: 1px solid rgb(210,210,210);
 }
 
-#upload {
+.upload {
     display: flex;
     justify-content: center;
     padding: 24px;
@@ -135,4 +135,10 @@ body {
     cursor: pointer;
     width: 100%;
     font-size: 20px;
+}
+
+.disabled {
+    cursor: no-drop;
+    opacity: 0.5;
+    pointer-events: none;
 }
