@@ -1,0 +1,25 @@
+{
+  "name": "teachers_notebook_converter",
+  "version": "1.0.0",
+  "description": "conversion tool for teacher stuff",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BradfordMedeiros/teachers_notebook_converter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BradfordMedeiros/teachers_notebook_converter/issues"
+  },
+  "homepage": "https://github.com/BradfordMedeiros/teachers_notebook_converter#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "formidable": "^1.1.1",
+    "uuid": "^3.1.0",
+    "zip-folder": "^1.0.0"
+  }
+}
