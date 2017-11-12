@@ -12,6 +12,8 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     <title>File Converter</title>
+  <script src="download.min.js"></script>
+
   </head>
 
   <body>
@@ -29,8 +31,8 @@
         </div>
         <div id="right">
           <div id="conv_title">Conversion Tools</div>
-          <button id="upload">Upload Files</button>
-          <button id="upload">Convert and Download</button>
+          <button id="upload" >Upload Files</button>
+          <button id="upload" onclick="uploadFiles()">Convert and Download</button>
         </div>
 
       </div>
@@ -42,6 +44,54 @@
 
   <script>
       const files = [ ];
+
+      const uploadFiles = () => {
+        generateFormData(files).then(formData => {
+          postForm(formData)
+        }).catch(() => {
+          // do nothing
+        })
+      };
+
+      const postForm = (formData) => {
+        window.bb = 'test';
+           const response =  fetch(`lesson`, {
+            method: 'POST',
+            mode: 'cors',
+            body: formData,
+          });
+           response.then(responseData => {
+             const blob =  responseData.blob();
+             blob.then(data => {
+               download(blob, 'files.zip');
+             });
+           });
+      };
+
+      const generateFormData = (files) => {
+        return new Promise((resolveOuter, rejectOuter) => {
+          if (files.length > 0){
+            const readFiles = (
+              Promise.all(files.map(file => new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = (result) => {
+                  resolve([result, file]);
+                };
+                reader.readAsBinaryString(file);
+              })))
+            );
+            readFiles.then((binaryData) => {
+              const form = new FormData();
+              files.forEach(file => {
+                form.append(file.name, file);
+              });
+              resolveOuter(form);
+            }).catch(rejectOuter);
+          }else{
+            rejectOuter();
+          }
+        });
+      };
 
       const createFileNode = fileName => {
         const innerDiv = document.createElement('div');
